@@ -39,7 +39,6 @@ export const SignInCard = () => {
 
     const onSubmit = (values: z.infer<typeof formSchema>) => {
         console.log({ values })
-
     }
 
 
