@@ -1,7 +1,13 @@
-const WorkspaeCreatePage = () => {
+import { getCurrent } from "@/features/auth/actions";
+import { CreateWorkspaceForm } from "@/features/workspaces/components/create-workspace-form"
+import { redirect } from "next/navigation";
+
+const WorkspaeCreatePage = async () => {
+    const user = await getCurrent();
+  if (!user) redirect("/sign-in");
     return (
-        <div>
-            WorkspaceCreatePage
+        <div className="w-full lg:max-w-xl">
+            <CreateWorkspaceForm />
         </div>
     )
 }
