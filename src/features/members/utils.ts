@@ -20,7 +20,7 @@ export const getMember = async({
             Query.equal("workspaceId", workspaceId),
             Query.equal("userId", userId),
         ],
-    )
+    );
 
-    return members.documents[0]
+    return members.documents[0];
 }
