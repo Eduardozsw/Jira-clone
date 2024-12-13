@@ -46,7 +46,7 @@ export const SignUpCard = () => {
     }
 
     return (
-        <Card className="w-1/2 h-full md:w-[487] border-none shadow-none">
+        <Card className="w-full lg:max-w-xl h-full md:w-[487] border-none shadow-none">
             <CardHeader className="flex items-center justify-center text-center p-7">
                 <CardTitle className="text-2xl">
                     Sign Up!
