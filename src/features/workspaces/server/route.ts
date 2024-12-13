@@ -12,33 +12,35 @@ import { DATABASE_ID, IMAGES_BUCKET_ID, MEMBERS_ID, WORKSPACES_ID } from "@/conf
 import { createWorkspaceSchema, updateWorkspaceSchema } from "../schemas";
 
 const app = new Hono()
-    .get("/", sessionMiddleware, async (c) => {
-        const user = c.get("user")
-        const databases = c.get("databases")
+    .get("/",
+        sessionMiddleware,
+        async (c) => {
+            const databases = c.get("databases")
+            const user = c.get("user")
 
-        const members = await databases.listDocuments(
-            DATABASE_ID,
-            MEMBERS_ID,
-            [Query.equal("userId", user.$id)]
-        )
+            const members = await databases.listDocuments(
+                DATABASE_ID,
+                MEMBERS_ID,
+                [Query.equal("userId", user.$id)]
+            )
 
-        if (!members.total === 0) {
-            return c.json({ data: { documents: [], total: 0 } })
-        }
+            if (members.total === 0) {
+                return c.json({ data: { documents: [], total: 0 } })
+            }
 
-        const workspaceIds = members.documents.map((member) => member.workspaceId)
+            const workspaceIds = members.documents.map((member) => member.workspaceId)
 
-        const workspaces = await databases.listDocuments(
-            DATABASE_ID,
-            WORKSPACES_ID,
-            [
-                Query.orderDesc("$createdAt"),
-                Query.contains("$id", workspaceIds)
-            ]
-        )
+            const workspaces = await databases.listDocuments(
+                DATABASE_ID,
+                WORKSPACES_ID,
+                [
+                    Query.orderDesc("$createdAt"),
+                    Query.contains("$id", workspaceIds)
+                ]
+            )
 
-        return c.json({ data: workspaces })
-    })
+            return c.json({ data: workspaces })
+        })
     .post(
         "/",
         zValidator("form", createWorkspaceSchema),
@@ -94,25 +96,25 @@ const app = new Hono()
         }
     )
     .patch(
-        "/:workspaecId",
+        "/:workspaceId",
         sessionMiddleware,
         zValidator("form", updateWorkspaceSchema),
         async (c) => {
-            const databases = c.get("databases")
-            const storage = c.get("storage")
-            const user = c.get("user")
+            const databases = c.get("databases");
+            const storage = c.get("storage");
+            const user = c.get("user");
 
             const { workspaceId } = c.req.param();
             const { name, image } = c.req.valid("form");
 
-            const member = getMember({
+            const member = await getMember({
                 databases,
                 workspaceId,
                 userId: user.$id,
             });
 
             if (!member || member.role !== MemberRole.ADMIN) {
-                return c.json({ error: "Unauthorized" }, 401)
+                return c.json({ error: "Unauthorized" }, 401);
             }
 
             let uploadedImageUrl: string | undefined;
@@ -142,9 +144,9 @@ const app = new Hono()
                     name,
                     imageUrl: uploadedImageUrl,
                 }
-            )
+            );
 
-            return c.json({ data: workspace})
+            return c.json({ data: workspace })
         }
     )
 
