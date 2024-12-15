@@ -14,6 +14,7 @@ import {
 
 import { getCookie } from "hono/cookie";
 import { createMiddleware } from "hono/factory"
+
 import { AUTH_COOKIE } from "@/features/auth/constants";
 
 type AddiotionalCOntext = {
@@ -30,7 +31,7 @@ export const sessionMiddleware = createMiddleware<AddiotionalCOntext>(
     async (c, next) => {
         const client = new Client()
             .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!)
-            .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT!)
+            .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT!);
 
         const session = getCookie(c, AUTH_COOKIE);
 
