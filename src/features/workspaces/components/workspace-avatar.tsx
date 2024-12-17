@@ -1,7 +1,8 @@
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { cn } from "@/lib/utils";
-import { AvatarImage } from "@radix-ui/react-avatar";
 import Image from "next/image";
+
+import { cn } from "@/lib/utils";
+
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 interface WorkspaceAvatarProps {
     image?: string;

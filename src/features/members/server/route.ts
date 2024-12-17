@@ -17,9 +17,9 @@ const app = new Hono()
     zValidator("query", z.object({ workspaceId: z.string() })),
     async (c) => {
       const { users } = await createAdminClient();
-      const databases = c.get("databases")
-      const user = c.get("user")
-      const { workspaceId } = c.req.valid("query")
+      const databases = c.get("databases");
+      const user = c.get("user");
+      const { workspaceId } = c.req.valid("query");
 
       const member = await getMember({
         databases,
@@ -39,7 +39,7 @@ const app = new Hono()
 
       const populatedMembers = await Promise.all(
         members.documents.map(async (member) => {
-          const user = await users.get(member.$userId)
+          const user = await users.get(member.userId)
 
           return {
             ...member,
