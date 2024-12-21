@@ -92,10 +92,6 @@ export const EditWorkspaceForm = ({ onCancel, initialValues }: EditWorkspaceForm
 
 		resetInviteCode({
 			param: { workspaceId: initialValues.$id }
-		}, {
-			onSuccess: () => {
-				router.refresh()
-			}
 		})
 	}
 
@@ -108,9 +104,8 @@ export const EditWorkspaceForm = ({ onCancel, initialValues }: EditWorkspaceForm
 			form: finalValues,
 			param: { workspaceId: initialValues.$id }
 		}, {
-			onSuccess: ({ data }) => {
+			onSuccess: () => {
 				form.reset();
-				router.push(`/workspaces/${data.$id}`)
 			}
 		})
 	}
@@ -126,7 +121,7 @@ export const EditWorkspaceForm = ({ onCancel, initialValues }: EditWorkspaceForm
 
 	const handleCopyInviteLink = () => {
 		navigator.clipboard.writeText(fullInviteLink)
-		.then(() => toast.success("Invite link copid"))
+			.then(() => toast.success("Invite link copid"))
 	}
 
 	return (
@@ -280,10 +275,10 @@ export const EditWorkspaceForm = ({ onCancel, initialValues }: EditWorkspaceForm
 									variant="secondary"
 									className="size-12"
 								>
-										<CopyIcon className="size-5"/>
+									<CopyIcon className="size-5" />
 								</Button>
 							</div>
-							<DottedSeparator className="py-7"/>
+							<DottedSeparator className="py-7" />
 						</div>
 						<Button className="mt-6 w-fit ml-auto"
 							size="sm"
@@ -304,7 +299,7 @@ export const EditWorkspaceForm = ({ onCancel, initialValues }: EditWorkspaceForm
 						<p className="text-sm text-muted-foreground">
 							Deleting a workspace is irreversible and will remove all associated data.
 						</p>
-						<DottedSeparator className="py-7"/>
+						<DottedSeparator className="py-7" />
 						<Button className="mt-6 w-fit ml-auto"
 							size="sm"
 							variant="destructive"
