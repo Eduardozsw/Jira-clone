@@ -1,9 +1,6 @@
 "use client"
 
 import { z } from "zod";
-import { useRef } from "react";
-import Image from "next/image";
-import { ImageIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -14,7 +11,6 @@ import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { DottedSeparator } from "@/components/dotted-separator";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
 	Form,
@@ -38,8 +34,6 @@ export const CreateTaskForm = ({ onCancel, projectOptions, memberOptions }: Crea
 	const workspaceId = useWorkspaceId()
 	const router = useRouter()
 	const { mutate, isPending } = useCreateTask()
-
-	const inputRef = useRef<HTMLInputElement>(null)
 
 	const form = useForm<z.infer<typeof createTaskSchema>>({
 		resolver: zodResolver(createTaskSchema.omit({ workspaceId: true })),
@@ -82,6 +76,21 @@ export const CreateTaskForm = ({ onCancel, projectOptions, memberOptions }: Crea
 											<Input
 												{...field}
 												placeholder="Enter task name" />
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+							<FormField
+								control={form.control}
+								name="dueDate"
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>
+											Due Date
+										</FormLabel>
+										<FormControl>
+											{/* TODO: Date Picker */}
 										</FormControl>
 										<FormMessage />
 									</FormItem>
