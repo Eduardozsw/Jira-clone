@@ -5,11 +5,13 @@ import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+import { MemberAvatar } from "@/features/members/components/member-avatar";
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { DatePicker } from "@/components/date-picker";
 import { DottedSeparator } from "@/components/dotted-separator";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -20,6 +22,13 @@ import {
 	FormLabel,
 	FormMessage,
 } from "@/components/ui/form"
+import {
+	Select,
+	SelectContent,
+	SelectTrigger,
+	SelectValue,
+	SelectItem
+} from "@/components/ui/select"
 
 import { createTaskSchema } from "../schemas";
 import { useCreateTask } from "../api/use-create-task";
@@ -90,9 +99,41 @@ export const CreateTaskForm = ({ onCancel, projectOptions, memberOptions }: Crea
 											Due Date
 										</FormLabel>
 										<FormControl>
-											{/* TODO: Date Picker */}
+											<DatePicker {...field} />
 										</FormControl>
 										<FormMessage />
+									</FormItem>
+								)}
+							/>
+							<FormField
+								control={form.control}
+								name="assigneeId"
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>
+											Assignee
+										</FormLabel>
+										<Select
+											defaultValue={field.value}
+											onValueChange={field.onChange}
+										>
+											<FormControl>
+												<SelectTrigger>
+													<SelectValue placeholder="Select assignee" />
+												</SelectTrigger>
+											</FormControl>
+											<FormMessage />
+											<SelectContent>
+												{memberOptions.map((member) => (
+													<SelectItem key={member.id} value={member.id}>
+														<div className="flex items-center gap-x-2">
+															<MemberAvatar className="size-6" name={member.name} />
+														</div>
+														{member.name}
+													</SelectItem>
+												))}
+											</SelectContent>
+										</Select>
 									</FormItem>
 								)}
 							/>
