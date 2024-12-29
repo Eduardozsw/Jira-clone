@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+import { ProjectAvatar } from "@/features/projects/components/project-avatar";
 import { MemberAvatar } from "@/features/members/components/member-avatar";
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 
@@ -125,14 +126,16 @@ export const CreateTaskForm = ({ onCancel, projectOptions, memberOptions }: Crea
 											</FormControl>
 											<FormMessage />
 											<SelectContent>
-												{memberOptions.map((member) => (
-													<SelectItem key={member.id} value={member.id}>
-														<div className="flex items-center gap-x-2">
-															<MemberAvatar className="size-6" name={member.name} />
-														</div>
-														{member.name}
-													</SelectItem>
-												))}
+												<div className="flex flex-row flex-wrap gap-2">
+													{memberOptions.map((member) => (
+														<SelectItem key={member.id} value={member.id}>
+															<div className="flex items-center gap-x-2">
+																<MemberAvatar className="size-6" name={member.name} />
+															</div>
+															{member.name}
+														</SelectItem>
+													))}
+												</div>
 											</SelectContent>
 										</Select>
 									</FormItem>
@@ -191,13 +194,16 @@ export const CreateTaskForm = ({ onCancel, projectOptions, memberOptions }: Crea
 												</SelectTrigger>
 											</FormControl>
 											<FormMessage />
-											<SelectContent>
-												{memberOptions.map((member) => (
-													<SelectItem key={member.id} value={member.id}>
+											<SelectContent >
+												{projectOptions.map((project) => (
+													<SelectItem key={project.id} value={project.id}>
 														<div className="flex items-center gap-x-2">
-															<MemberAvatar className="size-6" name={member.name} />
+															<ProjectAvatar
+																className="size-6"
+																name={project.name}
+																image={project.imageUrl} />
 														</div>
-														{member.name}
+														{project.name}
 													</SelectItem>
 												))}
 											</SelectContent>
