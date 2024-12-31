@@ -12,9 +12,17 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { DataFilters } from "./data-filters"
 
 import { useGetTasks } from "../api/use-get-tasks"
+import { useTaskFilters } from "../hooks/use-task-filters"
 import { useCreateTaskModal } from "../hooks/use-create-task-modal"
 
 export const TaskViewSwitcher = () => {
+  const [{
+    status,
+    assigneeId,
+    projectId,
+    dueDate
+  }] = useTaskFilters()
+
   const [view, setView] = useQueryState("task-view", {
     defaultValue: "table",
   })
@@ -24,7 +32,14 @@ export const TaskViewSwitcher = () => {
   const {
     data: tasks,
     isLoading: isLoadingTasks
-  } = useGetTasks({ workspaceId })
+  } = useGetTasks({
+    workspaceId,
+    projectId,
+    assigneeId,
+    dueDate,
+    status
+  })
+
   const { open } = useCreateTaskModal();
 
   return (
