@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/select"
 
 import { TaskStatus } from "../types";
+import { useTaskFilters } from "../hooks/use-task-filters";
 
 interface DataFiltersProps {
   hideProjectFilter?: boolean;
@@ -37,6 +38,8 @@ export const DataFilters = ({ hideProjectFilter }: DataFiltersProps) => {
     value: member.$id,
     label: member.name,
   }))
+
+  const [] = useTaskFilters()
 
   if (isLoading) return null
 
