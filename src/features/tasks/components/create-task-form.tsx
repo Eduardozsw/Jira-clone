@@ -162,7 +162,7 @@ export const CreateTaskForm = ({ onCancel, projectOptions, memberOptions }: Crea
 												<SelectItem value={TaskStatus.BACKLOG}>
 													Backlog
 												</SelectItem>
-												<SelectItem value={TaskStatus.IN_PROGESS}>
+												<SelectItem value={TaskStatus.IN_PROGRESS}>
 													In Progress
 												</SelectItem>
 												<SelectItem value={TaskStatus.IN_REVIEW}>
