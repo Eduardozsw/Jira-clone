@@ -11,7 +11,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 import { DataFilters } from "./data-filters"
 
-import { columns } from "./colums"
+import { columns } from "./columns"
 import { DataTable } from "./data-table"
 
 import { useGetTasks } from "../api/use-get-tasks"
