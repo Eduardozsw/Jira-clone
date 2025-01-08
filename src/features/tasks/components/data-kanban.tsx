@@ -25,6 +25,7 @@ export const DataKanban = ({ data }: DataKanbanProps) => {
     return (
         <div>
             Data Kanban
+            teste
         </div>
     )
 }
