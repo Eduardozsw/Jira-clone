@@ -5,7 +5,7 @@ import { useGetMembers } from "@/features/members/api/use-get-members";
 import { useGetProjects } from "@/features/projects/api/use-get-projects"
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 
-import { CreateTaskForm } from "./create-task-form";
+import { EditTaskForm } from "./edit-task-form";
 
 import { useGetTask } from "../api/use-get-task";
 
@@ -49,13 +49,14 @@ export const EditTaskFormWrapper = ({
       </Card>)
   }
 
-  if(!initialValues) {
+  if (!initialValues) {
     return null;
   }
 
   return (
     <div>
-      <CreateTaskForm
+      <EditTaskForm
+        initialValues={initialValues}
         onCancel={onCancel}
         projectOptions={projectOptions ?? []}
         memberOptions={memberOptions ?? []}
