@@ -41,7 +41,7 @@ export const Navigation = () => {
     const pathname = usePathname()
 
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-y-2">
             {routes.map((item) => {
                 const fullHref = `/workspaces/${workspaceId}${item.href}`;
                 const isActive = pathname === fullHref;
