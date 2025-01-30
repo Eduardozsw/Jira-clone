@@ -7,11 +7,12 @@ import { useProjectId } from "@/features/projects/hooks/use-project-id"
 import { useGetProject } from "@/features/projects/api/use-get-project"
 import { ProjectAvatar } from "@/features/projects/components/project-avatar"
 import { TaskViewSwitcher } from "@/features/tasks/components/task-view-switcher"
+import { useGetProjectAnalytics } from "@/features/projects/api/use-get-project-analytics"
 
 import { Button } from "@/components/ui/button"
+import { Analytics } from "@/components/analytics"
 import { PageError } from "@/components/page-error"
 import { PageLoader } from "@/components/page-loader"
-import { useGetProjectAnalytics } from "@/features/projects/api/use-get-project-analytics"
 
 export const ProjectIdClient = () => {
   const projectId = useProjectId()
@@ -49,7 +50,9 @@ export const ProjectIdClient = () => {
           </Button>
         </div>
       </div>
-      <Analytics data={analytics} />
+      {analytics ? (
+        <Analytics data={analytics} />
+      ) : null}
       <TaskViewSwitcher hideProjectFilter />
     </div >
   )
