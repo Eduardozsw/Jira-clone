@@ -52,7 +52,6 @@ export const Analytics = ({ data }: ProjectAnalyticsResponseType) => {
             variant={data.incompleteTaskCount > 0 ? "up" : "down"}
             increaseValue={data.incompleteTaskCount}
           />
-          <DottedSeparator direction="vertical" />
         </div>
       </div>
       <ScrollBar orientation="horizontal"/>
