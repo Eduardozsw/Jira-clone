@@ -47,6 +47,7 @@ export const KanbanColumnHeader = ({
     return (
         <div className="px-2 py-1.5 flex items-center justify-between">
             <div className="flex items-center gap-x-2">
+                {icon}
                 <h2 className="text-sm font-medium">
                     {snakeCaseToTitleCase(board)}
                 </h2>
