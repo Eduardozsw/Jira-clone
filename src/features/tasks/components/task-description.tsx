@@ -7,7 +7,6 @@ import { DottedSeparator } from "@/components/dotted-separator";
 
 import { Task } from "../types";
 import { useUpdateTask } from "../api/use-update-task";
-import { Description } from "@radix-ui/react-dialog";
 
 interface TaskDescriptionProps {
   task: Task
