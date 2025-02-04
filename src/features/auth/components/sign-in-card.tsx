@@ -1,7 +1,6 @@
 "use client";
 
 import { z } from "zod"
-import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -102,16 +101,7 @@ export const SignInCard = () => {
       </div>
       <CardContent className="p-7 flex flex-col gap-y-4">
         <Button
-          disabled={false}
-          variant="secondary"
-          size="lg"
-          className="w-full"
-        >
-          <FcGoogle className="mr-2 size-5" />
-          Login with Google
-        </Button>
-        <Button
-          onClick={signUpWithGithub}
+          onClick={() => signUpWithGithub()}
           disabled={false}
           variant="secondary"
           size="lg"
