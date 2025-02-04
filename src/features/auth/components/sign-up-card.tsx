@@ -116,7 +116,7 @@ export const SignUpCard = () => {
                             )}
                         />
                         <Button disabled={isPending} size="lg" className="w-full">
-                            Login
+                            Create account
                         </Button>
                     </form>
                 </Form>
@@ -132,7 +132,7 @@ export const SignUpCard = () => {
                     className="w-full"
                 >
                     <FaGithub className="mr-2 size-5" />
-                    Login with GitHub
+                    Create a account with GitHub
                 </Button>
             </CardContent>
             <div className="px-7">
