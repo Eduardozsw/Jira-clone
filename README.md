@@ -8,7 +8,7 @@ Um clone Jira, criado para aprendizado e experimentação de tecnologias moderna
 - [Next.js](https://nextjs.org/) ⚡ – Framework React para SSR, SSG e melhor desempenho.
 - [TailwindCSS](https://tailwindcss.com/) 🎨 – Framework CSS para estilização eficiente e responsiva.
 - [React Query](https://tanstack.com/query/latest) 🔄 – Gerenciamento de estado assíncrono e caching de requisições.
-- 
+  
 **Backend**
   
 - [Hono](https://hono.dev/) 🔥 – Framework web ultrarrápido para criação de APIs.
