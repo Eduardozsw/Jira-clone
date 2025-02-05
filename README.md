@@ -1,7 +1,7 @@
 # 📝 Jira Clone
-Um clone simplificado do Jira, criado para aprendizado e experimentação de tecnologias modernas.
+Um clone Jira, criado para aprendizado e experimentação de tecnologias modernas. Sinta-se a vontade para utilizar para utilizar das funções para seu trabalho ou projeto, disponível apenas em inglês no momento.
 
-## 🚀 Tecnologias Utilizadas
+## 📋Tecnologias Utilizadas
 **Frontend**
 
 - [TypeScript](https://www.typescriptlang.org/) 🟦 – Tipagem estática para um código mais seguro e escalável.
@@ -17,6 +17,12 @@ Um clone simplificado do Jira, criado para aprendizado e experimentação de tec
 **Banco de Dados e Autenticação**
 
 - [Appwrite](https://appwrite.io/) 🛠️ – Backend-as-a-Service para armazenamento de dados e autenticação.
+
+## 🚀Funcionalidades
+- Gerenciamento de equipes e trabalhos.
+- Criar, editar e excluir tarefas de maneira simples e fácil.
+- Organizar tarefas em colunas (To Do, In Progress, Done).
+- Kanban Board
 
 ## 🌍 Acesse Online
 
