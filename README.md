@@ -66,3 +66,5 @@ bun dev
 ## 📜 Licença
 Este projeto está licenciado sob a MIT License.
 
+## 📖 Meu Linkedin
+[Carlos Eduardo](https://www.linkedin.com/in/carloseduardossm/)
