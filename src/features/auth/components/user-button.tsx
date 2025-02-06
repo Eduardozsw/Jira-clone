@@ -8,6 +8,7 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu"
+import { GrConfigure } from "react-icons/gr";
 import { DottedSeparator } from "@/components/dotted-separator";
 
 import { useLogout } from "../api/use-logout";
@@ -62,8 +63,14 @@ export const UserButton = () => {
                 </div>
                 <DottedSeparator className="mb-1" />
                 <DropdownMenuItem
-                onClick={() => logout()}
-                 className="h-10 flex items-center justify-center text-amber-700 font-medium cursor-pointer">
+                    onClick={() => {}}
+                    className="h-10 flex items-center justify-center text-black font-medium cursor-pointer">
+                    <GrConfigure className="size-4 mr-2"/>
+                    Configuration
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                    onClick={() => logout()}
+                    className="h-10 flex items-center justify-center text-amber-700 font-medium cursor-pointer">
                     <LogOut className="size-4 mr-2" />
                     Log out
                 </DropdownMenuItem>
