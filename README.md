@@ -1,5 +1,5 @@
 # 📝 Jira Clone
-Um clone Jira, criado para aprendizado e experimentação de tecnologias modernas. Sinta-se a vontade para utilizar para utilizar das funções para seu trabalho ou projeto, disponível apenas em inglês no momento.
+Um clone Jira, criado para aprendizado e experimentação de tecnologias modernas. Sinta-se a vontade para utilizar das funções para seu trabalho ou projeto, disponível apenas em inglês no momento.
 
 ## 📋Tecnologias Utilizadas
 **Frontend**
